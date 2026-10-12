@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ─────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body, #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-base text-[#e6edf3] font-sans antialiased text-sm;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply rounded-full bg-white/10; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-white/20; }
+
+  /* Remove default select styling */
+  select { appearance: auto; }
+  select option { @apply bg-surface; }
+
+  /* Range input */
+  input[type="range"] { @apply p-0 accent-accent cursor-pointer; height: 6px; }
+}
+
+/* ── Component classes ───────────────────────────────────── */
+@layer components {
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-muted
+           transition-all duration-150 cursor-pointer;
+  }
+  .nav-item:hover  { @apply bg-white/5 text-[#e6edf3]; }
+  .nav-item.active { @apply bg-accent/15 text-accent; }
+
+  /* Stat card */
+  .stat-card {
+    @apply bg-surface border border-white/[0.07] rounded-xl p-4
+           flex items-start justify-between transition-colors duration-200;
+  }
+  .stat-card:hover { @apply border-white/[0.12]; }
+
+  /* Generic card */
+  .card {
+    @apply bg-surface border border-white/[0.07] rounded-xl mb-5
+           transition-colors duration-200;
+  }
+  .card:hover { @apply border-white/[0.11]; }
+
+  /* Table styles */
+  .data-th {
+    @apply text-[0.68rem] font-semibold uppercase tracking-widest text-muted
+           px-4 py-3.5 text-left border-b border-white/[0.07] bg-transparent;
+  }
+  .data-td {
+    @apply px-4 py-3.5 text-[0.85rem] border-b border-white/[0.07] text-[#e6edf3]
+           align-middle;
+  }
+  tr:last-child .data-td { @apply border-b-0; }
+  tr:hover .data-td { @apply bg-white/[0.02]; }
+
+  /* Badge */
+  .badge {
+    @apply inline-block px-2 py-0.5 rounded-full text-[0.67rem] font-bold
+           tracking-wide uppercase;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-gradient-to-br
+           from-accent to-accent-2 text-white font-semibold text-sm
+           rounded-lg px-5 py-2.5 border-none cursor-pointer
+           transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary:hover:not(:disabled) { @apply opacity-90 -translate-y-px; }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white/5 border border-white/[0.07]
+           text-[#e6edf3] font-medium text-sm rounded-lg px-4 py-2.5
+           cursor-pointer transition-all duration-150;
+  }
+  .btn-secondary:hover { @apply bg-white/10; }
+
+  .btn-icon {
+    @apply bg-transparent border-none cursor-pointer text-muted text-base
+           transition-colors duration-150 p-1;
+  }
+  .btn-icon:hover { @apply text-accent; }
+
+  .btn-rescan {
+    @apply bg-white/5 border border-white/[0.07] text-[#e6edf3] rounded
+           px-3 py-1.5 text-[0.78rem] cursor-pointer transition-all duration-150;
+  }
+  .btn-rescan:hover { @apply bg-white/10; }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-3.5 py-2.5 bg-base border border-white/[0.07] rounded-lg
+           text-sm text-[#e6edf3] font-[inherit]
+           transition-all duration-150 placeholder:text-dim;
+  }
+  .form-input:focus {
+    @apply outline-none border-accent shadow-[0_0_0_3px_rgba(79,142,247,0.15)];
+  }
+
+  /* Service tag */
+  .service-tag {
+    @apply bg-white/[0.06] border border-white/[0.07] text-muted
+           text-[0.65rem] font-semibold tracking-wider px-2 py-0.5
+           rounded uppercase;
+  }
+
+  /* CVE tag */
+  .cve-tag {
+    @apply inline-block bg-purple-500/10 text-purple-300
+           rounded px-1.5 py-0.5 text-[0.67rem] font-mono m-0.5;
+  }
+
+  /* Awaiting panel */
+  .awaiting-icon {
+    @apply w-16 h-16 rounded-full bg-white/5 flex items-center justify-center
+           text-2xl mb-3;
+  }
+
+  /* Gap item */
+  .gap-item {
+    @apply text-[0.78rem] text-muted pl-3 border-l-2 border-white/10
+           mb-1.5 leading-relaxed;
+  }
+}

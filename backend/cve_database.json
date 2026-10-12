@@ -1,0 +1,37 @@
+[
+  {
+    "cve": "CVE-2023-8001",
+    "desc": "Buffer overflow in legacy industrial control systems (ICS)",
+    "base_score": 9.5,
+    "tags": ["ics", "scada", "critical", "legacy", "buffer-overflow"],
+    "remediation": "Isolate ICS from the main network and apply vendor patch."
+  },
+  {
+    "cve": "CVE-2023-8002",
+    "desc": "Cross-Site Scripting (XSS) in primary HR portal login page",
+    "base_score": 6.1,
+    "tags": ["web", "xss", "medium", "portal", "http"],
+    "remediation": "Sanitize all user inputs on the login form."
+  },
+  {
+    "cve": "CVE-2023-8003",
+    "desc": "Unauthenticated REST API endpoint exposing user PII",
+    "base_score": 8.7,
+    "tags": ["api", "rest", "high", "pii", "auth"],
+    "remediation": "Enforce OAuth2 or JWT authentication on all API endpoints."
+  },
+  {
+    "cve": "CVE-2023-8004",
+    "desc": "Docker container escape vulnerability in runtime",
+    "base_score": 9.9,
+    "tags": ["docker", "container", "critical", "linux", "runtime"],
+    "remediation": "Update Docker engine to the latest stable release and avoid running containers as root."
+  },
+  {
+    "cve": "CVE-2023-8005",
+    "desc": "Cleartext storage of sensitive tokens in local storage",
+    "base_score": 5.4,
+    "tags": ["web", "storage", "medium", "tokens", "frontend"],
+    "remediation": "Move sensitive tokens to HttpOnly, Secure cookies."
+  }
+]
